@@ -2,6 +2,9 @@ import logging
 import flask
 import flask_config
 
+from wsgiref.util import FileWrapper
+from pywkher import generate_pdf
+
 app = flask.Flask(__name__)
 app.static_folder = "public"
 app.SEND_FILE_MAX_AGE_DEFAULT = 0
@@ -27,13 +30,13 @@ def html_to_pdf():
 
     if raw_html:
         try:
-            data = raw_html
-        except ValueError:
-            flask.abort(400)
-
-        try:
-            return data
-        except charts.InvalidData:
+            pdf_file = generate_pdf(html=raw_html)
+            
+            return flask.Response(response=pdf_file.encode('base64'),
+                                  status=200,
+                                  mimetype='application/pdf')
+            
+        except:
             flask.abort(400)
 
     else:
