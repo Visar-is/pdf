@@ -29,16 +29,10 @@ def html_to_pdf():
     raw_html = flask.request.form.get('html', '')
 
     if raw_html:
-        try:
-            pdf_file = generate_pdf(html=raw_html)
-            
-            return flask.Response(response=pdf_file.encode('base64'),
+        pdf_file = generate_pdf(html=raw_html)
+        return flask.Response(response=pdf_file.encode('base64'),
                                   status=200,
                                   mimetype='application/pdf')
-            
-        except:
-            flask.abort(400)
-
     else:
         flask.abort(400)
 
