@@ -1,7 +1,6 @@
 import logging
 import flask
 import flask_config
-import charts, phantom
 
 app = flask.Flask(__name__)
 app.static_folder = "public"
