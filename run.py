@@ -30,6 +30,8 @@ def html_to_pdf():
     
     if raw_html:
         pdf_file = generate_pdf(html='<html><body>Hello World</body></html>')
+        print 'PDF Size: '+pdf_file.tell()
+        #pdf_file.seek(0)
         
         '''
         template = get_template('my_awesome_template.html')
@@ -43,15 +45,13 @@ def html_to_pdf():
         '''
         
         
-        resp = flask.Response(response=FileWrapper(pdf_file),
+        resp = flask.Response(response=pdf_file,
                                   status=200,
                                   mimetype='application/pdf')
         #resp.headers['Content-Disposition'] = 'attachment; filename=%s.pdf' % basename(pdf_file.name)
         #resp.headers['Content-Length'] = pdf_file.tell()
         #pdf_file.seek(0)
         return resp
-        
-        return 
     else:
         flask.abort(400)
 
