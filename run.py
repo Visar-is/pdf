@@ -30,7 +30,7 @@ def html_to_pdf():
     
     if raw_html:
         pdf_file = generate_pdf(html='<html><body>Hello World</body></html>')
-        print 'PDF Size: '+pdf_file.tell()
+        print 'PDF Size: '+str(pdf_file.tell())
         #pdf_file.seek(0)
         
         '''
