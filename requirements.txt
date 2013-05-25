@@ -3,5 +3,5 @@ Jinja2==2.6
 Werkzeug==0.8.3
 distribute==0.6.31
 mock==1.0b1
-pywkher==1.0.3
+pywkher==1.0.4
 wsgiref==0.1.2
