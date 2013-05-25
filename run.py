@@ -31,6 +31,7 @@ def html_to_pdf():
     if raw_html:
         html = file('public/index.html').read()
         pdf_file = generate_pdf(html=html)
+        print 'HTML Length: '+str(len(html))
         print 'PDF Size: '+str(pdf_file.tell())
         #pdf_file.seek(0)
         
