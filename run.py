@@ -30,7 +30,7 @@ def html_to_pdf():
 
     if raw_html:
         pdf_file = generate_pdf(html=raw_html)
-        return flask.Response(response=pdf_file.encode('base64'),
+        return flask.Response(response=pdf_file,
                                   status=200,
                                   mimetype='application/pdf')
     else:
