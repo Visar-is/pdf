@@ -28,10 +28,9 @@ def html_to_pdf():
     """
     raw_html = flask.request.form.get('html', '')
     
-    print raw_html
-
     if raw_html:
-        pdf_file = generate_pdf(html=raw_html)
+        pdf_file = generate_pdf(html='<html><body>Hello World</body></html>')
+        
         return flask.Response(response=pdf_file,
                                   status=200,
                                   mimetype='application/pdf')
