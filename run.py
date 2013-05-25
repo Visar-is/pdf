@@ -46,9 +46,9 @@ def html_to_pdf():
         resp = flask.Response(response=FileWrapper(pdf_file),
                                   status=200,
                                   mimetype='application/pdf')
-        resp.headers['Content-Disposition'] = 'attachment; filename=%s.pdf' % basename(pdf_file.name)
-        resp.headers['Content-Length'] = pdf_file.tell()
-        pdf_file.seek(0)
+        #resp.headers['Content-Disposition'] = 'attachment; filename=%s.pdf' % basename(pdf_file.name)
+        #resp.headers['Content-Length'] = pdf_file.tell()
+        #pdf_file.seek(0)
         return resp
         
         return 
