@@ -29,7 +29,8 @@ def html_to_pdf():
     raw_html = flask.request.form.get('html', '')
     
     if raw_html:
-        pdf_file = generate_pdf(html='<html><body>Hello World</body></html>')
+        html = file('public/index.html').read()
+        pdf_file = generate_pdf(html=html)
         print 'PDF Size: '+str(pdf_file.tell())
         #pdf_file.seek(0)
         
