@@ -29,7 +29,7 @@ def html_to_pdf():
     raw_html = flask.request.form.get('html', '')
     
     if raw_html:
-        pdf_file = generate_pdf(html=raw_html)
+        pdf_file = generate_pdf(html=raw_html.encode(encoding='UTF-8'))
         
         '''
         template = get_template('my_awesome_template.html')
